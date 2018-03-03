@@ -47,7 +47,7 @@ while (my $dotted = <>) {
 }
 
 #
-# initialize the bitmask hash; generating bitstrings for the set of all ints would be inneficient 
+# initialize the bitmask hash; generating bitstrings for the set of all ints would be inefficient 
 # for storage, but we only care about 32 keys; this is *not* the general purpose netmask_to_bits 
 # recommended for C language implementations, but its simple, light and fast
 #
