@@ -41,7 +41,7 @@ while (my $dotted = <>) {
 	}
 
 	# only bitstrings with consecutive "1"s in the MSBs, otherwise it would be:
-	# ($bitstring =~ /01/ and -1)
+	# ($bitstring =~ /01/ and -1 or $bitstring)
 	print "$dotted => " . ($bitmasks{$intMask} or -1) . "\n";
 
 }
@@ -57,6 +57,7 @@ sub initValues() {
 	my $nextKey = $msb;
 
 	foreach (1..32) {
+		# TODO: init $nextKey to 0 and you can combine lines; seems too cute; good place for a lambda
 		$bitmasks{$nextKey} = $_;
 		$nextKey = $msb + ($nextKey >> 1);
 	}
