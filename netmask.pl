@@ -41,7 +41,7 @@ while (my $dotted = <>) {
 	}
 
 	# only bitstrings with consecutive "1"s in the MSBs, otherwise it would be:
-	# ($bitstring =~ /01/ and -1 or $bitstring)
+	# ($bitstring =~ /01/ and -1 or length($bitstring =~ s/0*$//r))
 	print "$dotted => " . ($bitmasks{$intMask} or -1) . "\n";
 
 }
